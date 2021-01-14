@@ -39,14 +39,14 @@
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.8.3/lib/system/single-spa.min.js" as="script">
 
   <!-- Add your organization's prod import map URL to this script's src  -->
-  <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
+  <script type="systemjs-importmap" src="/importmap.json"></script>
 
   <% if (isLocal) { %>
   <script type="systemjs-importmap">
     {
       "imports": {
-        "@inficare/root-config": "//localhost:9000/inficare-root-config.js",
-        "@inficare/auth": "//localhost:4200/main.js"
+        "@inficare/root-config": "./inficare-root-config.js",
+        "@inficare/auth": "https://priceless-booth-064227.netlify.app/main.js"
       }
     }
   </script>
