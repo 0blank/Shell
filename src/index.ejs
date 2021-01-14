@@ -8,17 +8,35 @@
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <title>Demo</title>
+            <style>
+              * {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+            </style>
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="importmap-type" content="systemjs-importmap">
             <script type="systemjs-importmap">
               {
                 "imports": {
                   "auth": "https://priceless-booth-064227.netlify.app/main.js",
+                  "report": "https://laughing-shirley-8138ac.netlify.app/main.js",
+                  "home": "https://sad-pike-5df308.netlify.app/main.js",
                   "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/5.5.0/system/single-spa.min.js",
                   "single-spa-layout": "https://unpkg.com/single-spa-layout@1.0.0-beta.2/dist/system/single-spa-layout.min.js"
                 }
               }
             </script>
+            <!-- <script type="systemjs-importmap">
+              {
+                "imports": {
+                  "auth": "//localhost:4200/main.js",
+                  "report": "http://localhost:52006/main.js",
+                  "home": "http://localhost:65296/main.js",
+                  "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/5.5.0/system/single-spa.min.js",
+                  "single-spa-layout": "https://unpkg.com/single-spa-layout@1.0.0-beta.2/dist/system/single-spa-layout.min.js"
+                }
+              }
+            </script> -->
             <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/single-spa/5.5.0/system/single-spa.min.js" as="script" crossorigin="anonymous" />
             <script src='https://unpkg.com/core-js-bundle@3.1.4/minified.js'></script>
             <script src="https://unpkg.com/zone.js@0.10.3/dist/zone.js"></script>
@@ -29,9 +47,21 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/extras/named-register.min.js"></script>
             <template id="single-spa-layout">
               <single-spa-router>
-                
                   <route default>
                     <application name="auth"></application>
+                  </route>
+                  <route path="app">
+                    <nav style="background-color: green;padding: 20px;display: flex; color: white;">
+                      <div style="margin: 0 90px;cursor: pointer;font-weight: 500;">LOGO</div>
+                      <div style="margin: 0 20px;cursor: pointer;"><a style="color: white;text-decoration: none;" href="/app/home">Home</a></div>
+                      <div style="margin: 0 20px;cursor: pointer;"><a style="color: white;text-decoration: none;" href="/app/report">Report</a></div>
+                    </nav>
+                      <route path="report">
+                        <application name="report"></application>
+                      </route>
+                      <route path="home">
+                        <application name="home"></application>
+                      </route>
                   </route>
               </single-spa-router>
             </template>
